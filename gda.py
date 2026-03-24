@@ -1,3 +1,7 @@
+# This project implements a Gaussian generative classifier for distinguishing
+# handwritten digits 2 and 3 by estimating class-specific mean vectors and
+# covariance matrices, then classifying each image using posterior scores derived
+# from the multivariate normal model.
 
 import matplotlib.pyplot as plt
 import scipy.linalg as lin
