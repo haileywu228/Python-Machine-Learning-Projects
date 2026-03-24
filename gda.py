@@ -1,20 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[2]:
-
-
-"""STA314 Homework 4.
-
-Copyright and Usage Information
-===============================
-
-This file is provided solely for the personal and private use of students
-taking STA314 at the University of Toronto St. George campus. All forms of
-distribution of this code, whether as given or with any changes, are
-expressly prohibited.
-"""
-
 
 import matplotlib.pyplot as plt
 import scipy.linalg as lin
@@ -22,11 +5,7 @@ import numpy as np
 import requests
 import io
 
-
-# In[3]:
-
-
-# You may find these helper functions useful
+# Helper Functions
 
 def sigmoid(x):
     """ Computes the element wise logistic sigmoid of x.
@@ -144,10 +123,6 @@ def save_images(images, filename):
     ax.patch.set_visible(False)
     plt.savefig(filename)
 
-
-# In[4]:
-
-
 def avg_conditional_likelihood(digits, labels, means, covariances):
     '''
     Compute the average conditional likelihood over the true class labels
@@ -175,11 +150,6 @@ def avg_conditional_likelihood(digits, labels, means, covariances):
         label = int(labels[j])
         total_prob += cond_likelihood[j][label]
     return total_prob/sample_size
-
-
-# Finish the five functions below.
-
-# In[5]:
 
 
 def compute_mean_mles(train_data, train_labels):
@@ -323,7 +293,6 @@ def conditional_likelihood(digits, means, covariances):
     return likelihoods
 
 
-
 def classify_data(digits, means, covariances):
     '''
     Classify new points by taking the most likely posterior class. 
@@ -364,9 +333,6 @@ def classify_data(digits, means, covariances):
     return pred
 
 
-# In[6]:
-
-
 def main():
     x_train, y_train = load_train()
     x_test, y_test = load_test()
@@ -399,10 +365,6 @@ def main():
         plt.subplot(3,4,i+1)
         plt.imshow(curr_leading_evec, cmap='gray')
     plt.show()
-
-
-# In[7]:
-
 
 main()
 
