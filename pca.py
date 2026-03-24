@@ -1,21 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[13]:
-
-
-"""STA314 Homework 4.
-
-Copyright and Usage Information
-===============================
-
-This file is provided solely for the personal and private use of students
-taking STA314 at the University of Toronto St. George campus. All forms of
-distribution of this code, whether as given or with any changes, are
-expressly prohibited.
-"""
-
-
 import matplotlib.pyplot as plt
 import scipy.linalg as lin
 import numpy as np
@@ -27,11 +9,7 @@ from scipy.linalg import eigh
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import accuracy_score
 
-
-# In[14]:
-
-
-# You may find these helper functions useful
+# Helper Functions
 
 def sigmoid(x):
     """ Computes the element wise logistic sigmoid of x.
@@ -149,12 +127,6 @@ def save_images(images, filename):
     ax.patch.set_visible(False)
     plt.savefig(filename)
 
-
-# In[15]:
-
-
-# You may also find this additional helper function useful
-
 def show_eigenvectors(v):
     """ Display the eigenvectors as images.
 
@@ -169,8 +141,7 @@ def show_eigenvectors(v):
     plt.show()
 
 
-# In[16]:
-
+# Principal Component Analysis
 
 def pca(x, k):
     """ PCA algorithm. Given the data matrix x and k,
@@ -218,10 +189,6 @@ def pca(x, k):
 
 
     return v, mean, proj_x
-
-
-# In[30]:
-
 
 def pca_classify():
     # Load all necessary datasets:
@@ -278,10 +245,6 @@ def pca_classify():
     plt.show()
     print("Validation accuracies:", val_accuracy)
     print("Testing accuracies:", test_accuracy)
-
-
-# In[31]:
-
 
 pca_classify()
 
