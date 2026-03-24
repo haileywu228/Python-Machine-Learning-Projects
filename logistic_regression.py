@@ -1,20 +1,9 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
-"""STA314 Homework 3.
-
-Copyright and Usage Information
-===============================
-
-This file is provided solely for the personal and private use of students
-taking STA314 at the University of Toronto St. George campus. All forms of
-distribution of this code, whether as given or with any changes, are
-expressly prohibited.
-"""
-
+## Logistic Regression Classifier 
+# This project builds a logistic regression classifier from scratch to distinguish between
+# handwritten digits 2 and 3. The model uses the sigmoid function to output probabilities
+# and is trained using gradient descent with L2 regularization to prevent overfitting.
+# Performance is evaluated using cross-entropy loss and accuracy on training, validation,
+# and test datasets, with visualizations to analyze learning behavior.
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -22,10 +11,7 @@ import requests
 import io
 
 
-# In[2]:
-
-
-# You may find these helper functions useful
+# Helper Functions
 
 def sigmoid(x):
     """ Computes the element wise logistic sigmoid of x.
@@ -144,8 +130,7 @@ def save_images(images, filename):
     plt.savefig(filename)
 
 
-# In[3]:
-
+# Main functions for Logistic Regression
 
 def logistic_predict(weights, data):
     """ Compute the probabilities predicted by the logistic classifier.
@@ -176,9 +161,6 @@ def logistic_predict(weights, data):
     return y
 
 
-# In[4]:
-
-
 def evaluate(targets, y):
     """ Compute evaluation metrics.
 
@@ -206,9 +188,6 @@ def evaluate(targets, y):
     frac_correct = float((y_pred == targets).mean())       
 
     return ce, frac_correct
-
-
-# In[5]:
 
 
 def logistic(weights, data, targets, hyperparameters):
@@ -267,14 +246,7 @@ def logistic(weights, data, targets, hyperparameters):
     return f, df, y
 
 
-# In[8]:
-
-
 def run_logistic_regression():
-    # Load all necessary datasets:
-    # x_train, y_train = load_train()
-
-    # If you would like to use digits_train_small, please uncomment this line:
     x_train, y_train = load_train_small()
     x_valid, y_valid = load_valid()
     x_test, y_test = load_test()
@@ -295,7 +267,6 @@ def run_logistic_regression():
     learning_rate = hyperparameters["learning_rate"]
     num_iteration = hyperparameters["num_iterations"]
     lambd = hyperparameters["weight_regularization"]
-
 
     # Perform gradient descent 
     w = np.zeros((d + 1, 1))
@@ -374,18 +345,7 @@ def run_logistic_regression():
     # Plot CE vs. iteration
     plot_ce_curves(train_ce_track, valid_ce_track, learning_rate)
 
-
-
-# In[9]:
-
-
 run_logistic_regression()
-
-
-# In[102]:
-
-
-# Q1 d
 
 # Helper function to plot CE vs. weight regulation
 def plot_validation_ce_vs_lambda(lambda_values, val_ce_results, dataset_name="Full Training Set"):
@@ -420,4 +380,3 @@ val_ce_results_s = [0.4959, 0.4950, 0.4926, 0.5139, 1.2095]
 # Full training set 
 plot_validation_ce_vs_lambda(lambda_values, val_ce_results_f, dataset_name="Full Training Set")
 plot_validation_ce_vs_lambda(lambda_values, val_ce_results_s, dataset_name="Small Training Set")
-
