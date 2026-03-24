@@ -5,6 +5,17 @@
 # Performance is evaluated using cross-entropy loss and accuracy on training, validation,
 # and test datasets, with visualizations to analyze learning behavior.
 
+# The dataset used in this project consists of a subset of handwritten digit images
+# containing only digits 2 and 3. Each image is represented as a 16 × 16 grayscale
+# pixel array, where pixel intensities are normalized to values between 0 and 1 and
+# stored as flattened vectors of length 256. 
+# The training dataset contains 300 samples per class, providing a balanced set of
+# labeled examples for model estimation, while a smaller training subset with 2
+# samples per class is available for testing and debugging. In addition, separate
+# validation and test datasets are provided for model selection and final
+# performance evaluation, ensuring that model performance is assessed on unseen
+# data.
+
 import matplotlib.pyplot as plt
 import numpy as np
 import requests
